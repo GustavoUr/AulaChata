@@ -21,6 +21,9 @@ public class Livro {
 	}
 
 	public void setTitulo(String titulo) {
+		if (titulo == "" | titulo == null) {
+			throw new RuntimeException("Titulo invalido");
+		}
 		this.titulo = titulo;
 	}
 
@@ -29,19 +32,13 @@ public class Livro {
 	}
 
 	public void setAutor(String autor) {
+		if (autor == "" | autor == null) {
+			throw new RuntimeException("Autor invalido");
+		}
 		this.autor = autor;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((autor == null) ? 0 : autor.hashCode());
-		result = prime * result + ((isbn == null) ? 0 : isbn.hashCode());
-		result = prime * result + ((titulo == null) ? 0 : titulo.hashCode());
-		return result;
-	}
-
+	
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -69,5 +66,4 @@ public class Livro {
 		return true;
 	}
 	
-	
-		}
+}
