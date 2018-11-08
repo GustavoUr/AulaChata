@@ -1,7 +1,6 @@
 package com.fatec.sce;
 
 import static org.junit.Assert.*;
-
 import org.junit.Test;
 import com.fatec.sce.model.DAOFactory;
 import com.fatec.sce.model.ILivroDAO;
@@ -9,7 +8,7 @@ import com.fatec.sce.model.Livro;
 
 public class UC02ConsultarLivro {
 	@Test
-	public void CT01Consultar_com_sucesso() {
+	public void CT01CadastrarLivro_com_sucesso() {
 		// cenario
 		Livro umLivro = ObtemLivro.comDadosValidos();
 		Livro resultadoObtido = null;

@@ -144,6 +144,7 @@ public class UC01CadastrarLivro {
 		}
 
 	}
+	
 
 	@Test
 	public void CT11CadastrarLivro_com_sucesso() {
@@ -156,6 +157,22 @@ public class UC01CadastrarLivro {
 		// verificacao
 		assertEquals(1, codigoRetorno);
 		livroDAO.exclui(umLivro.getIsbn());
+	}
+	@Test
+	public void CT12CadastrarLivro_com_isbn_ja_cadastrado() {
+		// cenario
+		Livro umLivro = ObtemLivro.comDadosValidos();
+		DAOFactory mySQLFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+		ILivroDAO livroDAO = mySQLFactory.getLivroDAO();
+		// acao
+		try {
+		 livroDAO.adiciona(umLivro);
+		 livroDAO.adiciona(umLivro);
+		}catch(Exception e) {
+			livroDAO.exclui(umLivro.getIsbn());
+			assertEquals("com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Duplicate entry '121212' for key 'PRIMARY'",
+					e.getMessage());
+		}
 	}
 
 }

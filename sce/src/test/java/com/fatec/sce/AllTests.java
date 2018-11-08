@@ -10,7 +10,8 @@ import org.junit.runners.Suite.SuiteClasses;
 	UC01CadastrarLivro.class, 
 	UC02ConsultarLivro.class,
 	UC05CadastrarUsuario.class, 
-	UC09RegistraEmprestimoDeLivro.class})
+	UC09RegistrarEmprestimoDeLivro.class
+	})
 public class AllTests {
 
 }

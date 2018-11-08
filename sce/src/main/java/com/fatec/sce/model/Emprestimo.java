@@ -57,12 +57,12 @@ public class Emprestimo {
 	 * valida o formato da data
 	 * 
 	 * @param data
-	 *            no formato dd/MM/yyyy
+	 *            no formato yyyy/MM/dd
 	 * @return true se a data estiver no formato valido e false para formato
 	 *         invalido
 	 */
 	public boolean validaData(String data) {
-		DateFormat df = new SimpleDateFormat("yyyy/MM/dd");
+		DateFormat df = new SimpleDateFormat("YYYY/MM/dd");
 		df.setLenient(false); //
 		try {
 			df.parse(data); // data válida
@@ -71,10 +71,9 @@ public class Emprestimo {
 			return false;
 		}
 	}
-	
 	public boolean ehDomingo(String data) {
 		boolean isValida = false;
-		DateTimeFormatter fmt = DateTimeFormat.forPattern("yyyy/MM/dd");
+		DateTimeFormatter fmt = DateTimeFormat.forPattern("YYYY/MM/dd");
 		if (validaData(data) == true) {
 		DateTime umaData = fmt.parseDateTime(data);
 		if (umaData.dayOfWeek().getAsText().equals("Domingo")) {
